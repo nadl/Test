@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="SHORTCUT ICON" href="/assets/rails.png">
+  <title>Multunus Twitter Challenge</title>
+  <link href="/assets/application-da2196f16ee9ff3a1adc7e67ac75804a.css" media="all" rel="stylesheet" type="text/css">
+<link href="/assets/bootstrap-a5035b9c1426e0067756a6beced8ab28.css" media="all" rel="stylesheet" type="text/css">
+<link href="/assets/common-7e513a382ac46a1411e50c17dbf80566.css" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="/assets/buttons.f48d075cabb93f026d23cf2c20db30d0.css"></head>
+<body>
+
+<div class="container-fluid" style="">
+  <div>
+  <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, :id => "flash_#{name}", :style => "color:red; font-size:30px; margin-top: 7px;" %>
+  <% end %>
+  </div>
+  <div class="row-fluid">
+    <div class="span5 logo-container">
+      <h1><%=link_to "Solved By: Gunanka", "https://github.com/Gunanka/twitter_puzzle"%></h1>
+    </div>
+    <div class="span7 right-column">
+      <img src="/assets/birdie.png">
+    </div>
+    <div class="row-fluid twitter-form">
+      <h2 class="error-message">
+      </h2>
+      <%= form_tag("/cloud_create", :method => 'get') do  %>
+      Twitter Handle: @
+      <%=text_field_tag "twitter_handle"%>
+      <br/><br/>
+      <%= submit_tag "Generate Cloud", :class => "btn btn-large btn-danger"%>
+     <% end %>
+      
+      
+    </div>
+  </div>
+</div>
+
+
+
+ <link href="/assets/style_index-4c4538686cdcb5e025848d27209748a6.css" media="screen" rel="stylesheet" type="text/css">

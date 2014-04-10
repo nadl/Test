@@ -1,0 +1,101 @@
+body{
+    width:100%;
+    height:auto;
+    background-image:url('/assets/clouds.jpg');
+    background-size:100%;
+}
+
+.logo-container {
+    padding-top: 17em;
+    text-align: right;
+}
+
+.right-column{
+    color:#ffffff;
+    text-shadow:2px 2px 3px #000000;
+    font-size:1.2em;
+}
+
+.twitter-form {
+   color:#ffffff;
+   font-size: 2em;
+   font-weight: bold;
+   float:left;
+   position: relative;
+   top: -100px;
+   left:0px;
+/*   height: 300px;*/
+}
+
+.twitter-form > form {
+    display:block;
+    width: 40%;
+    margin: 1em auto;
+   text-align: center;
+   float: right;
+   padding-right: 10%;
+}
+
+.twitter-form .submissions {
+   display:block;
+   width: 30%;
+   margin: 1em auto;
+   float:left;
+   margin-left: 17%;
+   line-height: 100%;
+}
+
+.submission-list {
+   margin-left: 17%;
+   margin-top: 7px;
+}
+
+.submission-list li {
+   margin-top: 7px;
+   line-height: 1em;
+}
+
+.twitter-form input[type=text]{
+    height: 35px;
+    font-size: 1.1em;
+}
+
+.twitter-form .btn-large {
+    margin-top: 1em;
+}
+
+h2.error-message {
+   text-align: center;
+   color: #B30000;
+}
+
+#process-twitter-handle .puzzle-end-message-link {
+   margin-top: 10%;
+   line-height: 1em;
+}
+
+.puzzle-end-message-link a{
+   color: #fff;
+   border: 1px solid #fff;
+   padding: 5px;
+}
+
+.puzzle-end-message-link a:hover{
+   text-decoration: none;
+   background-color: #fff;
+   color: darkblue;
+}
+
+#puzzle-end-message{
+   background-color: rgba(248, 248, 248, 0.9); !important;
+   color: rgba(248, 248, 248, 0.5);
+   width:auto;
+   -webkit-border-radius:50px;
+   border-radius: 25px;
+   margin-top: -50px;
+   padding: 2em;
+   color: #7B2B8B;
+   font-size: 1.2em;
+   text-align: center;
+   line-height: 1.5em;
+}

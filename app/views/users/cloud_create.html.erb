@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="SHORTCUT ICON" href="/assets/rails.png">
+  <title>Multunus Twitter Challenge</title>
+  <link href="/assets/application-da2196f16ee9ff3a1adc7e67ac30804a.css" media="all" rel="stylesheet" type="text/css">
+<link href="/assets/bootstrap-a5035b9c1426e0067306a6beced8ab28.css" media="all" rel="stylesheet" type="text/css">
+<link href="/assets/common-7e513a382ac46a1411e50c17dbf80566.css" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="/assets/buttons.f48d030cabb93f026d23cf2c20db30d0.css">
+
+<script type="text/javascript">
+  $(window).load(function(){
+    var total_lis = <%=eval(@user.history).count unless @user.history.nil?%>;
+    var tweets_pattern = <%=eval(@user.history).to_a unless @user.history.nil?%>;
+    var k = Math.ceil(total_lis/4);
+    var x=1;
+    if (total_lis < 2) {
+      return false;
+    }
+    var left_val = 585 ;
+    var top_val = 360 ;
+    var max = tweets_pattern[0][1]/10000 ;
+    var skip = false;
+   for (var i = 0; i < k; i++) {
+     for (var j = 0; j < 4; j++) {
+       $(".xmpl").append("<li>"+tweets_pattern[x++][0]+"</li>");
+       total_lis-- ;
+       switch (j) {
+          case 0:
+            $('ul > li:last-child').css('left',left_val+200*(Math.sqrt(i+1/3))+"px");
+            $('ul > li:last-child').css('font-size', (Math.sqrt(tweets_pattern[x][1]/max))+"px");
+            $('ul > li:last-child').css('top',top_val-49*(Math.sqrt(i+1))+"px");
+            break;
+          case 1:
+            $('ul > li:last-child').css('left',left_val-200*(Math.sqrt(i+1/3))+"px");
+            $('ul > li:last-child').css('font-size', (Math.sqrt(tweets_pattern[x][1]/max))+"px");
+            $('ul > li:last-child').css('top',top_val+49*(Math.sqrt(i+1))+"px");
+            break;
+          case 2:
+            $('ul > li:last-child').css('left',left_val-200*(Math.sqrt(i+1/3))+"px");
+            $('ul > li:last-child').css('top',top_val-49*(Math.sqrt(i+1))+"px");
+            $('ul > li:last-child').css('font-size', (Math.sqrt(tweets_pattern[x][1]/max))+"px");
+            break;
+          case 3:
+            $('ul > li:last-child').css('left',left_val+200*(Math.sqrt(i+1/3))+"px");
+            $('ul > li:last-child').css('top',top_val+49*(Math.sqrt(i+1))+"px");
+            $('ul > li:last-child').css('font-size', (Math.sqrt(tweets_pattern[x][1]/max))+"px");
+            break;
+        }
+        if (total_lis == 1) {
+        skip = true;
+        return false;
+    }
+     }
+     if (skip == true) {
+        return false;
+    }
+   }
+ 
+});
+  
+</script>
+<style>
+  body{
+    background-image:url('/assets/gunanka.jpg') !important;
+  }
+  li {position: absolute;
+      color: red;
+      margin: 0px;
+      padding: 0px;
+      display: block;
+      top: 500px;
+  }
+  
+</style>
+</head>
+<body>
+  <div class="container-fluid">
+      <div class="cloud" >
+	<ul id="xpower" class="xmpl" style="width: 1281px; height: 600px; list-style: none; margin: 0px; padding: 0px; position: relative; ">
+          <li value="<%=@user.history.blank? ? "" : eval(@user.history).first[0]%>" style="left: 585px; top: 360px; font-size: 100px;"><%=@user.history.blank? ? "" : eval(@user.history).first[0]%></li>
+        </ul>
+      </div>
+      <div style="margin-top: 30px;" >
+	<a href="/" class="btn btn-primary
+	                              btn-large">Try another twitter handle</a>
+      </div>
+  </div>
+</body>
